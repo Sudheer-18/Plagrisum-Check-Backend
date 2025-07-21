@@ -6,6 +6,7 @@ const CORE_KEYWORDS = new Set([
 ]);
 
 function clean(code) {
+  if (typeof code !== 'string') return '';  
   return code
     .replace(/\/\/.*|#.*|\/\*[^]*?\*\//g, '')
     .replace(/^\s*(import|using|#include).*$|^\s*from\s+\w+\s+import.*$/gm, '')
