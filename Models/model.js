@@ -1,13 +1,13 @@
+// models/submission.model.js
 const mongoose = require('mongoose');
 
-const CodeSubmissionSchema = new mongoose.Schema({
-  codeId: { type: String, required: true },
+const submissionSchema = new mongoose.Schema({
+  codeId: String,
   name: String,
   email: String,
-  code: String,
-  language: String,
+  submissions: Array,
   timestamp: Date,
-}, { collection: 'submissions' }); 
+  forcedFail: Boolean
+});
 
-module.exports = mongoose.models.CodeSubmission ||
-  mongoose.model('CodeSubmission', CodeSubmissionSchema);
+module.exports = mongoose.model('Submission', submissionSchema);
